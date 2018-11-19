@@ -3,7 +3,10 @@
     <indexNav></indexNav>
     <div class="search">
       <el-input v-model="input" placeholder="请输入技术需求，将为您匹配适合的专利项目"></el-input>
-      <i class="el-icon-search"></i>
+      <router-link :to="{path:'./userList',query:{input}}">
+        <i class="el-icon-search" ></i>
+      </router-link>
+
     </div>
     <div class="products">
       <div class="titP clearfix">
@@ -201,7 +204,12 @@
        }
 
     },
-    components:{indexNav,foot}
+    components:{indexNav,foot},
+    methods:{
+      goToDetail(){
+        window.location.href='./userList'
+      }
+    }
 
   }
 </script>

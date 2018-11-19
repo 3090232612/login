@@ -6,12 +6,13 @@
 </template>
 
 <script>
+
 export default {
   name: 'App'
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -21,4 +22,5 @@ export default {
   width:80%;
   margin:10px auto;
 }
+
 </style>

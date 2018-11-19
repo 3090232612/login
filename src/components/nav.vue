@@ -1,27 +1,27 @@
 
 <template>
-  <div class="nav" style="background-color:#545c64">
+  <div class="nav" style="">
     <el-row>
-      <el-col :span="4" style="line-height:61px;">
-        <img src="../assets/logo.png" alt="">
+      <el-col :span="8" style="line-height:61px;">
+        <img src="../assets/shlogo.png" alt="">
       </el-col>
-      <el-col :span="18">
+      <el-col :span="14">
         <el-menu
           :default-active="this.$route.path" router
           class="el-menu-demo"
           mode="horizontal"
           @select="handleSelect"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b">
+          text-color="#000"
+          active-text-color="#000">
           <el-menu-item index="/index">
            首页
           </el-menu-item>
           <el-menu-item index="/userList">
-            客户列表
+            项目库专利技术
           </el-menu-item>
-          <el-menu-item index="/block">个人管理</el-menu-item>
-          <el-menu-item index="/channel">商区管理</el-menu-item>
+          <el-menu-item index="/block">供需撮合</el-menu-item>
+          <el-menu-item index="/channel">需求市场</el-menu-item>
+          <el-menu-item index="/channel">咨询</el-menu-item>
         </el-menu>
       </el-col>
     </el-row>
@@ -31,8 +31,11 @@
 
 </template>
 <style lang="scss">
+  $lineColor:rgba(228, 228, 228, 1);
   .nav{
     margin-bottom:10px;
+    border:1px solid $lineColor;
+    padding:15px 0;
     a{
       display: inline-block;
       width: 100%;
@@ -53,7 +56,7 @@
       };
     },
     mounted(){
-      console.log(this.$route.path);
+     // console.log(this.$route.path);
 
     },
     computed:{
