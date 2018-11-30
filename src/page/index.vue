@@ -3,9 +3,10 @@
     <indexNav></indexNav>
     <div class="search">
       <el-input v-model="input" placeholder="请输入技术需求，将为您匹配适合的专利项目"></el-input>
-      <router-link :to="{path:'./userList',query:{input}}">
-        <i class="el-icon-search" ></i>
-      </router-link>
+      <!--<router-link :to="{path:'./userList',query:{input}}">-->
+      <!---->
+      <!--</router-link>-->
+      <i class="el-icon-search" @click="goToDetail"></i>
 
     </div>
     <div class="products">
@@ -207,7 +208,9 @@
     components:{indexNav,foot},
     methods:{
       goToDetail(){
-        window.location.href='./userList'
+        console.log(this.$router);
+        console.log(this.$route);
+       this.$router.push({path:'./userList',query:{input:this.input}})//等同于router-link :to 绑定的
       }
     }
 
