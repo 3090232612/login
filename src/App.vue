@@ -20,7 +20,10 @@ export default {
   text-align: center;
   /*color: #2c3e50;*/
   width:80%;
-  margin:10px auto;
+  height:100%;
+  margin:0px auto;
+  padding-top:10px;
+  box-sizing: border-box;
 }
 
 </style>

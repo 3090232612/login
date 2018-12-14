@@ -19,7 +19,7 @@
           <el-menu-item index="/userList">
             项目库专利技术
           </el-menu-item>
-          <el-menu-item index="/block">供需撮合</el-menu-item>
+          <el-menu-item index="/applyNeed">供需撮合</el-menu-item>
           <el-menu-item index="/channel">需求市场</el-menu-item>
           <el-menu-item index="/channel">咨询</el-menu-item>
         </el-menu>

@@ -1,57 +1,40 @@
 <template>
   <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
     <el-form-item class="login_tit">
-      <strong>登陆</strong>
-      <span><router-link to="./regis">免费注册</router-link></span>
+      <strong>注册</strong>
+      <span><router-link to="./login">立即登录</router-link></span>
     </el-form-item>
-    <div style="margin-bottom:25px;" class="changeButton">
-      <button type="button" class="default mr50" @click="normalReverse" :class="{active:normal}"><span>普通登录</span></button>
-      <button type="button" class="default" @click="mobileReverse" :class="{active:mobile}"><span>动态密码登录</span></button>
-    </div>
-    <div v-show="normal">
-      <el-form-item label="" prop="phone">
-        <el-input type="phone" placeholder="手机号" v-model="ruleForm2.phone" autocomplete="off" ></el-input>
-      </el-form-item>
-      <el-form-item label="" prop="pass">
-        <el-input type="password" placeholder="密码" v-model="ruleForm2.pass" autocomplete="off" ></el-input>
-      </el-form-item>
-      <el-form-item label="" prop="code">
-        <el-input v-model="ruleForm2.code" placeholder="动态码" style="width:50%"></el-input>
-        <span style="width:25%;margin-left: 20px;margin-right: 17px;">
-          <img src="../assets/yzm.png" alt=""></span>
-        <!--<el-button type="primary" @click="send('ruleForm2')">发送验证码</el-button>-->
-        <span style="width:25%"><img src="../assets/changeyzm.png" alt="">换一换</span>
-      </el-form-item>
-      <el-form-item style="text-align:left">
-        <el-button type="primary" @click="submitForm('ruleForm2')" style="width:50%;margin-right:20px;">登录</el-button>
-        <el-checkbox label="两周内自动登录" name="type"></el-checkbox>
-      </el-form-item>
+    <el-form-item label="" prop="phone">
+      <el-input type="phone" placeholder="手机号" v-model="ruleForm2.phone" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="" prop="pass">
+      <el-input type="password" placeholder="密码" v-model="ruleForm2.pass" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="" prop="username">
+      <el-input v-model="ruleForm2.username" placeholder="用户名"></el-input>
+    </el-form-item>
+    <el-form-item label="" prop="code">
+      <el-input v-model="ruleForm2.code" placeholder="动态码" style="width:66%"></el-input>
+      <el-button type="primary" @click="send('ruleForm2')" style="width:32%">发送验证码</el-button>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="submitForm('ruleForm2')" style="width:50%">登录</el-button>
 
-      <el-form-item><router-link to="./resetPass">忘记密码?</router-link></el-form-item>
-    </div>
-    <div v-show="mobile">
-      <el-form-item label="" prop="phone">
-        <el-input type="phone" placeholder="手机号" v-model="ruleForm2.phone" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="" prop="code">
-        <el-input v-model="ruleForm2.code" placeholder="动态码" style="width:66%"></el-input>
-        <el-button type="primary" @click="send('ruleForm2')" style="width:32%">发送验证码</el-button>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm2')" style="width:50%">登录</el-button>
-      </el-form-item>
-    </div>
-
+      <!--<el-button @click="resetForm('ruleForm2')">重置</el-button>-->
+    </el-form-item>
+    <el-form-item>
+      <el-checkbox label="我同意" name="type"></el-checkbox>
+      <router-link to="">网站服务协议</router-link>
+    </el-form-item>
   </el-form>
 </template>
 <style  lang="scss">
   @mixin border{
-  border:1px solid rgba(228, 228, 228, 1);
+    border:1px solid rgba(228, 228, 228, 1);
   }
   $mainColor:rgba(228, 228, 228, 1);
   form{
     width:480px;
-    height: 472px;
     margin:0 auto;
     @include border;
     padding: 15px 45px;
@@ -75,31 +58,7 @@
       float:right;
     }
   }
-  .changeButton{
-    button{
-      border-color:#000;
-      &.el-button.is-plain:active,&.el-button.is-plain:hover{
-        border-color:#000;
-        background: #000;
-        color:#fff;
-      }
-    }
-  }
 
-  button.default{
-    background:none;
-    padding:10px 20px;
-    border:1px solid #000;
-    font-size:14px;
-    cursor:pointer;
-  }
-  button.active{
-    color:#fff;
-    background: #000;
-  }
-  .mr50{
-    margin-right: 50px;
-  }
 
 </style>
 <script>
@@ -153,14 +112,11 @@
 //        }
 //      };
       return {
-        normal:true,
-        mobile:false,
         ruleForm2: {
           username:'',
           phone:'',
           pass: '',
           code:''
-
 //          checkPass: '',
         },
         verify: {
@@ -187,14 +143,6 @@
       };
     },
     methods: {
-      normalReverse(){
-       this.normal=true;
-        this.mobile=false;
-      },
-      mobileReverse(){
-        this.normal=false;
-        this.mobile=true;
-      },
       send(formName){
 
         this.$refs[formName].validateField("phone")

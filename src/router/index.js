@@ -8,6 +8,9 @@ import block from '@/page/block'
 import channel from '@/page/channel'
 import index from '@/page/index'
 import login from '@/page/login'
+import regis from '@/page/regis'
+import resetPass from '@/page/resetPass'
+import applyNeed from '@/page/applyNeed'
 Vue.use(Router)
 
 export default new Router({
@@ -35,6 +38,11 @@ export default new Router({
       component: block
     },
     {
+      path: '/applyNeed',
+      name: 'applyNeed',
+      component: applyNeed
+    },
+    {
       path: '/channel',
       name: 'channel',
       component: channel
@@ -43,6 +51,16 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/regis',
+      name: 'regis',
+      component: regis
+    },
+    {
+      path: '/resetPass',
+      name: 'resetPass',
+      component: resetPass
     }
   ]
 })

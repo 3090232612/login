@@ -7,7 +7,8 @@ import router from './router';
 import qs from 'qs'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import '#/css/reset.css'
+import '#/css/reset.css';
+ import Nav from './components/nav'
 Vue.prototype.$axios=axios;
 axios.defaults.withCredentials = true; //让ajax携带cookie
 Vue.prototype.qs=qs;

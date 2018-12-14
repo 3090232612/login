@@ -3,7 +3,7 @@
   <div class="navIndex">
     <img src="../assets/shlogo.png" alt="">
     <div class="regis">
-      <span><router-link to="/login">注册</router-link></span>
+      <span><router-link to="/regis">注册</router-link></span>
       |
       <span><a href="">登录</a></span>
     </div>
